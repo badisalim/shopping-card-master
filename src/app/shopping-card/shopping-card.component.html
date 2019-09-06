@@ -1,0 +1,62 @@
+<p>
+  shopping-card works!
+</p>
+
+<div class="container py-3">
+  <h4 class="text-center text-uppercase">How to calculate Shopping Card in Angular </h4>
+  <table class="table table-bordered">
+    <thead class="bg-danger text-white text-upparcase">
+      <tr>
+        <th>Product----</th>
+        <th>Quantity</th>
+        <th>Price</th>
+        <th>Total</th>
+        <th>&nbsp;</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of data; let id=index">
+        <td>
+          <input type="text" [(ngModel)]="item.name" class="form-control" z>
+        </td>
+        <td>
+          <input type="number" min="1" [(ngModel)]="item.quantity" class="form-control">
+        </td>
+        <td>
+          <input type="number" min="1" [(ngModel)]="item.price" class="form-control">
+        </td>
+        <td>{{item.quazntity * item.price | currency:'$'}}</td>
+        <td>
+          <button (click)="removeItem(id)" class="btn btn-sm btn-danger"><img width="20px"
+              src="https://raw.githubusercontent.com/badisalim/shopping-card/master/src/assets/icons/trash.png" /></button>
+        </td>
+        <td><button type="button" (click)="editItem(id)" class="btn btn-sm btn-primary rounded-0">
+            Edit</button></td>
+      <tr *ngFor="let product of products">
+        <td>{{ product.name }}</td>
+        <td>{{ product.quantity }}</td>
+        <td>{{ product.price }}</td>
+        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'edit-product', product.id]">Edit</a></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td><button type="button" (click)="addItem(id)" class="btn btn-sm btn-primary rounded-0">
+            Add Product ...</button></td>
+        <td>
+          <div>
+            <a routerLink="products" class="btn btn-sm btn-primary rounded-0">Cancel</a>&nbsp;
+            <input type="submit" class="btn btn-primary" value="OK" />
+          </div>
+        </td>
+
+        <td>Total:</td>
+        <td>{{total() | currency:'$'}}</td>
+
+        <td></td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
