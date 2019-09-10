@@ -2,6 +2,7 @@
   "name": "i4-frontend-specialisation-ng",
   "version": "0.0.0",
   "scripts": {
+    "json:server": "json-server --watch db.json",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",

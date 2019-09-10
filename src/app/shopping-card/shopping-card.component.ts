@@ -37,7 +37,6 @@ export class ShoppingCardComponent implements OnInit {
   }
 
 
-
   total() {
     const productsTotal = this.data.map(product => product.quantity * product.price);
     return (this.data.length > 0) ? productsTotal.reduce((product1, product2) => product1 + product2) : 0;

@@ -1,6 +1,3 @@
-<p>
-  shopping-card works!
-</p>
 
 <div class="container py-3">
   <h4 class="text-center text-uppercase">How to calculate Shopping Card in Angular </h4>
@@ -16,32 +13,40 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of data; let id=index">
+      <tr *ngFor="let product of data; let id=index">
         <td>
-          <input type="text" [(ngModel)]="item.name" class="form-control" z>
+          <input type="text" [(ngModel)]="product.name" class="form-control" >
         </td>
         <td>
-          <input type="number" min="1" [(ngModel)]="item.quantity" class="form-control">
+          <input type="number" min="1" [(ngModel)]="product.quantity" class="form-control">
         </td>
         <td>
-          <input type="number" min="1" [(ngModel)]="item.price" class="form-control">
+          <input type="number" min="1" [(ngModel)]="product.price" class="form-control">
         </td>
-        <td>{{item.quazntity * item.price | currency:'$'}}</td>
+        <td>{{product.quantity * product.price | currency:'$'}}</td>
+
         <td>
           <button (click)="removeItem(id)" class="btn btn-sm btn-danger"><img width="20px"
-              src="https://raw.githubusercontent.com/badisalim/shopping-card/master/src/assets/icons/trash.png" /></button>
-        </td>
-        <td><button type="button" (click)="editItem(id)" class="btn btn-sm btn-primary rounded-0">
-            Edit</button></td>
-      <tr *ngFor="let product of products">
+              src="https://raw.githubusercontent.com/badisalim/shopping-card/master/src/assets/icons/trash.png"
+              [routerLink]="['/','shop', 'edit-product', product.id]"/></button>
+            </td>
+
+            <td><a  class="btn btn-primary"[routerLink]="['/','shop', 'edit-product', product.id]" [routerLink]="['/','shop', 'add-product', product.id]">Edit</a></td>
+            <td><a  class="btn btn-primary"[routerLink]="['/','shop', 'add-product', product]">Add</a></td>
+
+
+
+
+      <tr *ngFor="let product of product">
         <td>{{ product.name }}</td>
         <td>{{ product.quantity }}</td>
         <td>{{ product.price }}</td>
-        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'edit-product', product.id]">Edit</a></td>
+
         <td></td>
       </tr>
 
       <tr>
+
         <td><button type="button" (click)="addItem(id)" class="btn btn-sm btn-primary rounded-0">
             Add Product ...</button></td>
         <td>

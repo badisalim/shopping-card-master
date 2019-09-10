@@ -17,4 +17,5 @@ export class AddProductComponent implements OnInit {
     await this.httpClient.post('http://localhost:3000/products', product).toPromise();
     this.router.navigateByUrl('/products');
   }
+
 }

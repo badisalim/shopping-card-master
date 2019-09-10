@@ -6,45 +6,57 @@ import { Router } from '@angular/router';
 
 export interface Product {
 
-    id: number;
-    name: string;
-    quantity: number;
-    price: number;
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
 
 }
 
 @Injectable({
-    providedIn: 'root'
+  providedIn: 'root'
 })
 export class ProductsService {
-    // host = 'https://my-json-server.typicode.com/badisalim/shopping-card/data';
-    host = 'https://localhost:3000/products';
-    constructor(private httpClient: HttpClient, private productService: ProductsService, private router: Router) { }
+  // host = 'https://my-json-server.typicode.com/badisalim/shopping-card/data';
+  host = 'https://localhost:3000/products';
+  dialogData: Product;
+  constructor(private httpClient: HttpClient, private productService: ProductsService, private router: Router) { }
 
-    getProducts(): Observable<Product[]> {
+  getProducts(): Observable<Product[]> {
 
-        return this.httpClient.get<Product[]>(this.host);
-    }
-    getProduct(id: number): Observable<Product> {
-        return this.httpClient.get<Product>('${this.host}/${id}');
-    }
+    return this.httpClient.get<Product[]>(this.host);
+  }
+  getProduct(id: number): Observable<Product> {
+    return this.httpClient.get<Product>('${this.host}/${id}');
+  }
 
 
-    addItem(product: Product) {
+  // addItem(product: Product) {
 
-        return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
-    }
-    addProduct(product: Product) {
-        console.log('1234', product);
-        return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
-    }
-    editProduct(product: Product) {
-        return this.httpClient.put(this.host, product);
+  //   return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
+  // }
+  async addItem(product: Product) {
+    await this.httpClient.post('http://localhost:3000/products', product).toPromise();
+    this.router.navigateByUrl('/products');
+  }
+  addProduct(product: Product) {
+    console.log('1234', product);
+    return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
+  }
+  editProduct(product: Product) {
+    return this.httpClient.put(this.host, product);
 
-    }
-    deleteProduct(id: number) {
-        return this.httpClient.delete<Product>('${this.host}/${id}');
+  }
+  deleteProduct(id: number) {
+    return this.httpClient.delete<Product>('${this.host}/${id}');
 
-    }
+  }
+  updateProduct(product: Product) {
+    return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
+  }
+  async update(product: Product) {
+    await this.httpClient.put('http://localhost:3000/products', product).toPromise();
+    this.router.navigateByUrl('/products');
+  }
 
 }

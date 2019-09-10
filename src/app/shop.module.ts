@@ -8,6 +8,7 @@ import { ProductFormComponent } from './product-form/product-form.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
     ProductsContainerComponent,
     ProductFormComponent,
     AddProductComponent,
-    EditProductComponent
+    EditProductComponent,
+    UpdateProductComponent
   ],
   imports: [
     CommonModule,
@@ -40,6 +42,11 @@ import { EditProductComponent } from './edit-product/edit-product.component';
             path: 'edit-product/:id',
             component: EditProductComponent
           },
+          {
+            path: 'update-product/:id',
+            component: UpdateProductComponent
+          },
+
         ]
       }
     ])

@@ -11,17 +11,40 @@ import { Product } from '../products-container/products-container.component';
 })
 export class EditProductComponent implements OnInit {
   product$: Observable<Product>;
-  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) {}
+  data: any;
+  productService: any;
+  dialogRef: any;
+  dataService: any;
+  constructor(private httpClient: HttpClient, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
     const id = this.route.snapshot.params.id;
     this.product$ = this.httpClient.get<Product>(`http://localhost:3000/products/${id}`);
   }
 
-  async submit(product) {}
+  async submit(product) { }
 
   async remove(product) {
     await this.httpClient.delete(`http://localhost:3000/products/${product.id}`).toPromise();
     this.router.navigateByUrl('/products');
   }
+
+  editItem() {
+
+    this.data.push({ name: '', quantity: 1, price: 1 });
+    // CALL SERVICE
+    this.productService.addItem({ name: '', quantity: 1, price: 1 });
+  }
+
+  onNoClick(): void {
+    this.productService.close();
+  }
+
+  stopEdit(): void {
+    this.productService.updateProduct(this.data);
+  }
+  updateItem(product: Product): void {
+    this.productService.updateProduct({ name: '', quantity: 1, price: 1 });
+  }
+
 }

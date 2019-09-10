@@ -15,7 +15,7 @@ export class ProductFormComponent implements OnInit {
   form: any;
   routerNavigateByUrl: any;
   productsService: any;
-  constructor(private formBuilder: FormBuilder, private router: Router) {}
+  constructor(private formBuilder: FormBuilder, private router: Router) { }
 
   ngOnInit() {
     this.formGroup = this.formBuilder.group({
@@ -32,7 +32,7 @@ export class ProductFormComponent implements OnInit {
       console.log(this.formGroup.value);
       this.save.emit(this.formGroup.value);
       await this.productsService.addItem(this.formGroup.value).toPromise();
-      
+
       this.router.navigateByUrl('/products');
 
     }
