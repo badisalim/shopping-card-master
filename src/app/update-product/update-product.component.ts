@@ -10,6 +10,7 @@ import { Product } from '../products-container/products-container.component';
   styleUrls: ['./update-product.component.scss']
 })
 export class UpdateProductComponent implements OnInit {
+  [x: string]: any;
 
   product$: Observable<Product>;
   data: any;
@@ -51,6 +52,19 @@ export class UpdateProductComponent implements OnInit {
     await this.httpClient.put('http://localhost:3000/products', product).toPromise();
     this.router.navigateByUrl('/products');
   }
+  getProductFromRoute(): void {
+    const id = +this.route.snapshot.paramMap.get('id');
+    console.log(`this.route.snapshot.paramMap = ${JSON.stringify(this.route.snapshot.paramMap)}`);
+    this.productService.getProductFromId(id).subscribe(product => this.product = product);
+  }
+  save(): void {
+    this.productService.updateProduct(this.product).subscribe(() => this.goBack());
+  }
+  goBack(): void {
+    this.location.back();
+  }
+
+
 }
 
 

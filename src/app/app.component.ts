@@ -7,5 +7,6 @@ import { pipeBind1 } from '@angular/core/src/render3';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- 
+  title = 'This is my Angular 5 tutorials series !';
+
 }

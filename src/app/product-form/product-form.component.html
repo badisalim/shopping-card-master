@@ -1,13 +1,25 @@
 <form [formGroup]="formGroup" (ngSubmit)="submit()">
   <input type="hidden" class="form-control" formControlName="id" />
+
   <div class="form-group">
     <label for="">Name</label>
+    <!-- Add from List -->
+    <select type="text" class="form-control" formControlName="name"><input type="text" class="form-control"
+        formControlName="name" />
+      <option value="apple">Apple</option>
+      <option value="orange">Orange</option>
+      <option value="banana">Banana</option>
+    </select>
+
+    <!-- Add free -->
     <input type="text" class="form-control" formControlName="name" />
   </div>
+
   <div class="form-group">
     <label for="">Quantity</label>
     <input type="number" class="form-control" formControlName="quantity" />
   </div>
+
   <div class="form-group">
     <label for="">Price</label>
     <input type="number" step="any" class="form-control" formControlName="price" />

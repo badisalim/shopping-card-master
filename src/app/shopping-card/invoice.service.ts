@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Product } from '../products-container/products-container.component';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 export interface Product {
@@ -17,10 +17,11 @@ export interface Product {
   providedIn: 'root'
 })
 export class ProductsService {
+  constructor(private httpClient: HttpClient, private productsService: ProductsService, private router: Router) { }
   // host = 'https://my-json-server.typicode.com/badisalim/shopping-card/data';
   host = 'https://localhost:3000/products';
-  dialogData: Product;
-  constructor(private httpClient: HttpClient, private productService: ProductsService, private router: Router) { }
+  product: { id: any; name: any; quantity: any; price: any; };
+
 
   getProducts(): Observable<Product[]> {
 
@@ -31,14 +32,14 @@ export class ProductsService {
   }
 
 
-  // addItem(product: Product) {
+  addItem(product: Product) {
 
-  //   return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
-  // }
-  async addItem(product: Product) {
-    await this.httpClient.post('http://localhost:3000/products', product).toPromise();
-    this.router.navigateByUrl('/products');
+    return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
   }
+  // async addItem(product: Product) {
+  //   await this.httpClient.post('http://localhost:3000/products', product).toPromise();
+  //   this.router.navigateByUrl('/products');
+  // }
   addProduct(product: Product) {
     console.log('1234', product);
     return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
@@ -50,13 +51,6 @@ export class ProductsService {
   deleteProduct(id: number) {
     return this.httpClient.delete<Product>('${this.host}/${id}');
 
-  }
-  updateProduct(product: Product) {
-    return this.httpClient.post(this.host, product).subscribe(data => console.log(data));
-  }
-  async update(product: Product) {
-    await this.httpClient.put('http://localhost:3000/products', product).toPromise();
-    this.router.navigateByUrl('/products');
   }
 
 }

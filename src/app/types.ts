@@ -1,3 +1,13 @@
+export class Product {
+  id: number;
+  name: string;
+  quantity: number;
+  price: number;
+}
+
+
+
+
 // export interface Purchases {
 //   [branch: string]: BranchDict;
 // }

@@ -9,9 +9,9 @@ import { Product } from '../products-container/products-container.component';
   styleUrls: ['./add-product.component.scss']
 })
 export class AddProductComponent implements OnInit {
-  constructor(private httpClient: HttpClient, private router: Router) {}
+  constructor(private httpClient: HttpClient, private router: Router) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   async submit(product: Product) {
     await this.httpClient.post('http://localhost:3000/products', product).toPromise();

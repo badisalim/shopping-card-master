@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 export interface Product {
+  id: any;
   name: string;
   quantity: number;
   price: number;
@@ -16,7 +17,7 @@ export interface Product {
 export class ProductsContainerComponent implements OnInit {
   private url = 'http://localhost:3000/products';
   products$: Observable<Product[]>;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
     this.products$ = this.httpClient.get<Product[]>(this.url);
