@@ -1,1 +1,24 @@
-<app-product-form [product]="{}" (save)="submit($event)"></app-product-form>
+
+<div class="container custom-container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Creat Product</h3>
+
+    <div class="form-group">Name
+      <input type="text" [(ngModel)]="productDetails.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">Quantity
+      <input type="text" [(ngModel)]="productDetails.quantity" class="form-control" placeholder="Quantity">
+    </div>
+
+    <div class="form-group">Price
+      <input type="text" [(ngModel)]="productDetails.price" class="form-control" placeholder="Price">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="addProduct()">Create Product</button>
+    </div>
+
+  </div>
+</div>
+<!-- <app-product-form [product]="{}" (save)="submit($event)"></app-product-form> -->

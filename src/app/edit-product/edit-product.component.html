@@ -1,4 +1,28 @@
-<ng-container *ngIf="product$ | async as product">
+<div class="container custom-container">
+  <div class="col-md-12">
+
+    <h3 class="mb-3 text-center">Update Productc</h3>
+
+    <div class="form-group">Name
+
+      <input type="text" [(ngModel)]="productData.name" class="form-control" placeholder="Name">
+    </div>
+
+    <div class="form-group">Quantity
+      <input type="text" [(ngModel)]="productData.quantity" class="form-control" placeholder="Quantity">
+    </div>
+
+    <div class="form-group">Price
+      <input type="text" [(ngModel)]="productData.price" class="form-control" placeholder="Price">
+    </div>
+
+    <div class="form-group">
+      <button class="btn btn-success btn-lg btn-block" (click)="updateProduct()">Update Productu</button>
+    </div>
+
+  </div>
+</div>
+<!-- <ng-container *ngIf="product$ | async as product">
   <button class="btn btn-danger" (click)="remove(product)">Remove Product</button>
   <app-product-form [product]="product" (save)="submit($event)"></app-product-form>
-</ng-container>
+</ng-container> -->

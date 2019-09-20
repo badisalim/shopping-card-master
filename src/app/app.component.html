@@ -1,23 +1,25 @@
-<div class="container">
-  <div class="row">
-    <div class="col-12 text-center">
-      <h1>News Austrian Coding School</h1>
-      <h2>Frontend Specialisation</h2>
-      <h2>Intake 4 - 2018/19</h2>
-    </div>
+  <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+    <h5 class="my-0 mr-md-auto font-weight-normal">Product Management</h5>
+
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/shop/per-product">Per Product
+      </a></nav>
+
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/shop/per-basket">Per Basket
+      </a></nav>
+
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/shopping-card">ShoppingCart
+      </a></nav>
+
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/shop/create-product">Add Product
+      </a></nav>
+
+    <nav class="my-2 my-md-0 mr-md-3">
+      <a class="btn btn-outline-primary" routerLinkActive="active" routerLink="/shop/product-detail">Products List
+      </a></nav>
+
   </div>
-
-  <div class="row">
-    <div class="col-12">
-      <ul>
-        <li><a routerLink="/shopping-card">ShoppingCart</a></li>
-        <li><a routerLink="/projects">Projects</a></li>
-        <li><a routerLink="/shop">Shop</a></li>
-        <li><a routerLink="/products">Products</a></li>
-
-      </ul>
-    </div>
-  </div>
-
   <router-outlet></router-outlet>
-</div>

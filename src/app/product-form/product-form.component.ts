@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Product } from '../products-container/products-container.component';
+import { ProductT } from '../types';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,8 +9,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent implements OnInit {
-  @Input() product: Product;
-  @Output() save = new EventEmitter<Product>();
+  @Input() product: ProductT;
+  @Output() save = new EventEmitter<ProductT>();
   formGroup: FormGroup;
   form: any;
   routerNavigateByUrl: any;

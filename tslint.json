@@ -1,9 +1,10 @@
 {
   "extends": "tslint:recommended",
   "rulesDirectory": [
-    "codelyzer"
+    "node_modules/codelyzer"
   ],
   "rules": {
+    "no-string-literal": false,
     "array-type": false,
     "arrow-parens": false,
     "deprecation": {

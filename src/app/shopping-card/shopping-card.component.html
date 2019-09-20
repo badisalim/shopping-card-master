@@ -26,15 +26,24 @@
         <td>{{product.quantity * product.price | currency:'$'}}</td>
 
         <td>
-          <button (click)="removeItem(id)" class="btn btn-sm btn-danger"><img width="20px"
+          <button  class="btn btn-sm btn-danger"><img width="20px"
               src="https://raw.githubusercontent.com/badisalim/shopping-card/master/src/assets/icons/trash.png"
-              [routerLink]="['/','shop', 'edit-product', product.id]" /></button>
+              [routerLink]="['/','shop', 'product-detail', product]" /></button>
         </td>
 
         <td><a class="btn btn-primary" [routerLink]="['/','shop', 'edit-product', product.id]"
-            [routerLink]="['/','shop', 'shopping-card', product.id]">Edit</a></td>
-        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'add-product', product]"
-          [routerLink]="['/','shop', 'shopping-card', product]">Add</a></td>
+            [routerLink]="['/','shop', 'shopping-card', product.id]">Edit</a>
+
+
+
+        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'create-product', product]"
+            [routerLink]="['/','shop', 'shopping-card', product]">Add</a>
+
+
+        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'product-detail', product]"
+            [routerLink]="['/','shop', 'shopping-card', product]">updateDetee</a></td>
+
+
 
       <tr *ngFor="let product of product">
         <td>{{ product.name }}</td>

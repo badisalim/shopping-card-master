@@ -1,28 +1,25 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ShopComponent } from './shop/shop.component';
+import { ShopComponent } from './link/shop.component';
 import { RouterModule } from '@angular/router';
-import { ProductsComponent } from './products/products.component';
-import { ProductsContainerComponent } from './products-container/products-container.component';
 import { ProductFormComponent } from './product-form/product-form.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AddProductComponent } from './add-product/add-product.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
-import { UpdateProductComponent } from './update-product/update-product.component';
+import { ProductDetailComponent } from './product-detail/product-detail.component';
 
 @NgModule({
   declarations: [
 
     ShopComponent,
-    ProductsComponent,
-    ProductsContainerComponent,
     ProductFormComponent,
     AddProductComponent,
     EditProductComponent,
-    UpdateProductComponent
+    ProductDetailComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     ReactiveFormsModule,
     RouterModule.forChild([
       {
@@ -31,11 +28,12 @@ import { UpdateProductComponent } from './update-product/update-product.componen
         children: [
 
           {
-            path: 'products',
-            component: ProductsContainerComponent
+            path: '',
+            redirectTo: 'create-product',
+            pathMatch: 'full'
           },
           {
-            path: 'add-product',
+            path: 'create-product',
             component: AddProductComponent
           },
           {
@@ -43,8 +41,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
             component: EditProductComponent
           },
           {
-            path: 'update-product/:id',
-            component: UpdateProductComponent
+            path: 'product-detail',
+            component: ProductDetailComponent
           },
 
         ]
