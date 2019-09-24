@@ -1,1 +1,1 @@
-{"data":[{"id":4,"name":"Tomato","quantity":3,"price":1.1},{"id":4,"name":"milch","quantity":5,"price":6},{"id":5,"name":"bread","quantity":10,"price":5},{"id":12,"name":"","quantity":null,"price":null},{"id":13,"name":"","quantity":null,"price":null}]}
+{"data":[{"id":4,"name":"Tomato","quantity":3,"price":1.1},{"id":4,"name":"milch","quantity":5,"price":6},{"id":5,"name":"bread","quantity":10,"price":5},{"id":13,"name":"","quantity":null,"price":null},{"name":"cola","quantity":"10","price":"10","id":14},{"name":"cola","quantity":"10","price":"10","id":15}]}

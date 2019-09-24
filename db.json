@@ -4,11 +4,11 @@
       "id": 38,
       "name": "Orange",
       "quantity": "5",
-      "price": "6"
+      "price": "7"
     },
     {
       "name": "coffee",
-      "quantity": "5",
+      "quantity": "7",
       "price": "6",
       "id": 43
     },
@@ -29,6 +29,12 @@
       "quantity": "10",
       "price": "5",
       "id": 47
+    },
+    {
+      "name": "chocolate",
+      "quantity": "50",
+      "price": "20",
+      "id": 48
     }
   ]
 }

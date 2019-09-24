@@ -16,9 +16,9 @@ export class ShoppingCardComponent implements OnInit {
   data: any;
 
   constructor(private httpClient: HttpClient,
-              private productsService: ProductsService,
-              private router: Router,
-              private api: ApiService) { }
+    private productsService: ProductsService,
+    private router: Router,
+    private api: ApiService) { }
 
 
   ngOnInit() {
@@ -26,6 +26,9 @@ export class ShoppingCardComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
         this.data = data;
+        this.http.get('app/files/1.txt').subscribe(data => {
+          console.log(data.text());
+        })
       });
   }
 

@@ -19,7 +19,7 @@ export interface Product {
 export class ProductsService {
   constructor(private httpClient: HttpClient, private productsService: ProductsService, private router: Router) { }
   // host = 'https://my-json-server.typicode.com/badisalim/shopping-card/data';
-  host = 'https://localhost:3000/products';
+  host = 'https://localhost:3000/api/products';
   product: { id: any; name: any; quantity: any; price: any; };
 
 

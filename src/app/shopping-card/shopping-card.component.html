@@ -26,22 +26,25 @@
         <td>{{product.quantity * product.price | currency:'$'}}</td>
 
         <td>
+
+          <!-- <button routerLink="/products/detail/{{product.id}}" class="btn btn-secondary btn-sm">
+                <i class="fa fa-search"></i>
+              </button> -->
+
           <button  class="btn btn-sm btn-danger"><img width="20px"
               src="https://raw.githubusercontent.com/badisalim/shopping-card/master/src/assets/icons/trash.png"
               [routerLink]="['/','shop', 'product-detail', product]" /></button>
+
         </td>
 
         <td><a class="btn btn-primary" [routerLink]="['/','shop', 'edit-product', product.id]"
-            [routerLink]="['/','shop', 'shopping-card', product.id]">Edit</a>
+          >Edit</a></td>
 
 
 
         <td><a class="btn btn-primary" [routerLink]="['/','shop', 'create-product', product]"
-            [routerLink]="['/','shop', 'shopping-card', product]">Add</a>
+          >Add</a></td>
 
-
-        <td><a class="btn btn-primary" [routerLink]="['/','shop', 'product-detail', product]"
-            [routerLink]="['/','shop', 'shopping-card', product]">updateDetee</a></td>
 
 
 
