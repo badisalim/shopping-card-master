@@ -28,7 +28,7 @@
     "cors": "^2.8.5",
     "husky": "^2.2.0",
     "jshint": "^2.10.2",
-    "lodash": "^4.17.13",
+    "lodash": "^4.17.21",
     "lodash.mergewith": "^4.6.2",
     "mixin-deep": "^2.0.1",
     "prettier": "^1.17.0",
